@@ -1,0 +1,8 @@
+
+In order to connect to the VNC session you will need a VNC viewer application.
+Realvnc.com offeres free viewers.  They have installers for linux, windows, and OSX.
+
+After downloading and installing the VNC viewer connect to your lab server IP followed by the port.
+The port for the VNC session is :5901
+
+So for example 192.192.192.192:5901 is what you would use to connect to your lab server from the Real VNC viewer application.
