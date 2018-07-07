@@ -1,5 +1,0 @@
-demo/password
-
-
-
- psql postgres://demo:password@54.190.46.125:80/sample  -c "Select count(id) from employees;"
