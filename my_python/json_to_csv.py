@@ -9,7 +9,7 @@ sys.setdefaultencoding("UTF-8")
 
 myinfile = sys.argv[1]
 myoutfile = sys.argv[2]
-#print myinfila #debuge
+#print myinfile #debug
 json_data = open(myinfile)
 data = json.load(json_data)
 #print data #debug
