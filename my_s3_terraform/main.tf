@@ -16,20 +16,25 @@ resource "aws_s3_bucket"  "org-frieswiththat" {
     enabled = false
   }
   lifecycle_rule {
-    id = "age"
-   enabled = "false" #was true
+    id = "production"
+   enabled = "true"
+
    prefix ="*"
    tags {
       "rule" = "age"
       "autoclean" = "true"
          }
+
    transition {
-       storage_class = "ONEZONE_IA"
+       storage_class = "STANDARD_IA"
+       days = 30
     }
-  }
-#   noncurrent_version_expiration {
-#       days = 15
-#    }
+
+   transition {
+       storage_class = "GLACIER"
+       days = 90
+    }
+    }
   }
  
 resource "aws_s3_bucket"  "org-frieswiththat-test" {
