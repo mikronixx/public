@@ -48,3 +48,23 @@ resource "aws_s3_bucket"  "org-frieswiththat-test" {
     enabled = false
   }
 }
+  lifecycle_rule {
+    id = "development"
+   enabled = "true"
+
+   prefix ="*"
+   tags {
+      "rule" = "age"
+      "autoclean" = "true"
+         }
+
+   transition {
+       storage_class = "STANDARD_IA"
+       days = 30
+    }
+
+   transition {
+       storage_class = "GLACIER"
+       days = 90
+    }
+    }
