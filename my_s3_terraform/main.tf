@@ -47,7 +47,6 @@ resource "aws_s3_bucket"  "org-frieswiththat-test" {
   versioning {
     enabled = false
   }
-}
   lifecycle_rule {
     id = "development"
    enabled = "true"
@@ -68,3 +67,4 @@ resource "aws_s3_bucket"  "org-frieswiththat-test" {
        days = 90
     }
     }
+}
