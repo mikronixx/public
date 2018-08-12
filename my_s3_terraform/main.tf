@@ -4,10 +4,18 @@ provider "aws" {
   shared_credentials_file = "${var.aws_credentials}"
   profile                 = "${var.profile}"
 }
+
  
 resource "aws_s3_bucket"  "org-frieswiththat" {
   bucket = "org.frieswiththat"
   acl    = "private"
+  server_side_encryption_configuration {
+    rule {
+      apply_server_side_encryption_by_default {
+        sse_algorithm     = "AES256"
+      }
+    }
+ }
   tags {
     Name        = "org.frieswiththat"
     Environment = "Prod"
@@ -40,6 +48,16 @@ resource "aws_s3_bucket"  "org-frieswiththat" {
 resource "aws_s3_bucket"  "org-frieswiththat-test" {
   bucket = "org.frieswiththat.test"
   acl    = "private"
+  server_side_encryption_configuration {
+    rule {
+      apply_server_side_encryption_by_default {
+        sse_algorithm     = "AES256"
+      }
+    }
+ }
+
+
+
   tags {
     Name        = "org.frieswiththat.test"
     Environment = "Dev"
