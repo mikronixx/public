@@ -44,6 +44,45 @@ resource "aws_s3_bucket"  "org-frieswiththat" {
     }
     }
   }
+
+resource "aws_s3_bucket"  "orgfrieswiththat" {
+  bucket = "org-frieswiththat"
+  acl    = "private"
+  server_side_encryption_configuration {
+    rule {
+      apply_server_side_encryption_by_default {
+        sse_algorithm     = "AES256"
+      }
+    }
+ }
+  tags {
+    Name        = "org-frieswiththat"
+    Environment = "Prod"
+  }
+  versioning {
+    enabled = false
+  }
+  lifecycle_rule {
+    id = "production"
+   enabled = "true"
+
+   prefix ="*"
+   tags {
+      "rule" = "age"
+      "autoclean" = "true"
+         }
+
+   transition {
+       storage_class = "STANDARD_IA"
+       days = 30
+    }
+
+   transition {
+       storage_class = "GLACIER"
+       days = 90
+    }
+    }
+  }
  
 resource "aws_s3_bucket"  "org-frieswiththat-test" {
   bucket = "org.frieswiththat.test"
