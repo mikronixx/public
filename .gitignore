@@ -6,6 +6,9 @@ __pycache__/
 # C extensions
 *.so
 
+#vagrant
+.vagrant
+
 #terraform
 .terraform/
 terraform.tfstate
