@@ -7,5 +7,5 @@
   tasks:
   - name: yum update
     yum: name='*' state=latest
-  - name:  install python2-pip.noarch
-    yum: name=python2-pip.noarch state=latest
+  - name:  install python2-pip epel wget bind-utils rsync
+    yum: name=python2-pip.noarch,epel,wget,bind-utils,rsync state=latest
