@@ -1,0 +1,11 @@
+---
+- hosts: all
+  user: vagrant
+  become: yes
+  become_user: root
+  become_method: sudo
+  tasks:
+  - name: yum update
+    yum: name='*' state=latest
+  - name:  install python2-pip.noarch
+    yum: name=python2-pip.noarch state=latest
