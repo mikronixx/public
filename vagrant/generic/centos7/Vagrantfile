@@ -3,11 +3,11 @@
 
 Vagrant.configure("2") do |config|
   config.vm.box = "generic/centos7"
-  config.vm.network "forwarded_port", guest: 22, host: 2200, host_ip: "127.0.0.1"
+#  config.vm.network "forwarded_port", guest: 22, host: 2200, host_ip: "127.0.0.1"
   config.vm.synced_folder ".", "/vagrant"
   config.vm.synced_folder "~/git_repo", "/git_repo"
   config.ssh.insert_key = false
-    config.vm.provision "ansible_local" do |ansible|
+    config.vm.provision "ansible" do |ansible|
        ansible.verbose = "v"
        ansible.playbook = "provision_centos7_vagrant.yml"
     config.vm.provision "shell" do | shell|
