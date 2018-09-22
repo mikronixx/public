@@ -5,7 +5,9 @@
   become_user: root
   become_method: sudo
   tasks:
+  - name: set timezone
+    timezone: name=America/Los_Angeles hwclock=local
   - name: yum update
     yum: name='*' state=latest
-  - name:  install python2-pip epel wget bind-utils rsync
-    yum: name=python2-pip.noarch,epel-release,wget,bind-utils,rsync state=latest
+  - name:  install python2-pip epel wget bind-utils rsync curl nmap fping mtr lynx 
+    yum: name=python2-pip.noarch,epel-release,wget,bind-utils,rsync,curl,nmap,fping,mtr,lynx state=latest
