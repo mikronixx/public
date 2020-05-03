@@ -1,1 +1,1 @@
-repo fpor my linux academy coursework
+repo for my linux academy coursework
