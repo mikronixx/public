@@ -1,3 +1,6 @@
+#!/bin/bash
+#cli command to find and remove delete markers.  
+#https://docs.aws.amazon.com/AmazonS3/latest/userguide/manage-objects-versioned-bucket.html
 PROFILE=s3
 REGION=us-west-2
 BUCKET=$1
