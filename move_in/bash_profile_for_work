@@ -1,0 +1,30 @@
+if [ -f ~/.bashrc ]; then
+    . ~/.bashrc
+fi
+export PATH="$HOME/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/sbin:$PATH"
+ulimit -n 65535
+
+#https://unix.stackexchange.com/questions/1288/preserve-bash-history-in-multiple-terminal-windows
+export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
+export HISTSIZE=100000                   # big big history
+export HISTFILESIZE=100000               # big big history
+shopt -s histappend                      # append to history, don't overwrite it
+# Save and reload the history after each command finishes
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+#
+export CLICOLOR=1
+export TERM=xterm
+export GOPATH=$HOME/work
+export VAGRANT_HOME=$HOME/exclude/.vagrant.d
+alias vmrun="/Applications/VMware\ Fusion.app/Contents/Library/vmrun"
+#jumphost sample
+alias k8sc00="ssh -J mikron@192.168.42.51 mikron@192.168.213.100"
+alias k8sw00="ssh -J mikron@192.168.42.51 mikron@192.168.213.101"
+alias k8sw01="ssh -J mikron@192.168.42.51 mikron@192.168.213.102"
+alias mygitlab="ssh -J mikron@192.168.42.51 mikron@192.168.213.69"
+#k8s
+source <(kubectl completion bash)
+#
+alias ducks="du -cks * | sort -rn | head -11"
+
+complete -C /usr/local/bin/terraform terraform
