@@ -1,0 +1,8 @@
+python3 -m venv  the_name_you_want_to_give_your_virt_env
+. the_name_you_want_to_give_your_virt_env/bin/activate && pip3 install --upgrade pip
+. the_name_you_want_to_give_your_virt_env/bin/activate && pip3 install --upgrade setuptools
+. the_name_you_want_to_give_your_virt_env/bin/activate && pip3 install --upgrade ez_setup
+. the_name_you_want_to_give_your_virt_env/bin/activate && pip3 install --upgrade wheel
+. the_name_you_want_to_give_your_virt_env/bin/activate && pip3 install -r requirements.txt
+####
+. the_name_you_want_to_give_your_virt_env/bin/activate && python3 ansible-playbook some_playbook.yaml
